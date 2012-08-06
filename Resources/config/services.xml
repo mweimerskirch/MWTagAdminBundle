@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="mw.text_to_tag_transformer.class">\MW\Bundle\TagAdminBundle\Form\DataTransformer\TextToTagTransformer</parameter>
+    </parameters>
+
+    <services>
+        <service id="mw.text_to_tag_transformer" class="%mw.text_to_tag_transformer.class%">
+            <argument type="service" id="fpn_tag.tag_manager"/>
+        </service>
+    </services>
+
+</container>

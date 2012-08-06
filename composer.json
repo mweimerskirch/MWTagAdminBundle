@@ -1,0 +1,24 @@
+{
+    "name": "mw/tag-admin-bundle",
+    "description": "MW Tag Admin Bundle",
+    "keywords": ["tagging", "tag"],
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Michel Weimerskirch",
+            "email": "michel@weimerskirch.net"
+        }
+    ],
+    "require": {
+        "symfony/framework-bundle": ">=2.0",
+        "fpn/tag-bundle": "*",
+        "sonata-project/admin-bundle": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "MW\\Bundle\\TagAdminBundle": ""
+        }
+    },
+    "target-dir": "MW/TagAdminBundle"
+}
