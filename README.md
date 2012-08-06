@@ -1,3 +1,5 @@
+The goal of this bundle is to make it easy to use the FPNTagBundle together with the SonataAdminBundle.
+
 In your entities:
 
 ``` php
@@ -14,6 +16,18 @@ In your admin classes:
 class ...Admin extends Admin
 {
     use \MW\Bundle\TagAdminBundle\Admin\Traits\TagHandler;
+
+    ...
+
+    protected function configureFormFields(FormMapper $formMapper)
+    {
+        $formMapper
+            ...
+            ->add('tags_plain', 'textarea')
+            ->end()
+            ;
+        }
+    }
     ...
 }
 ```
