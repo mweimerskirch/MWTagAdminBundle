@@ -3,7 +3,7 @@ The goal of this bundle is to make it easy to use the FPNTagBundle together with
 In your entities:
 
 ``` php
-class ...
+class ... implements \DoctrineExtensions\Taggable\Taggable
 {
     use \MW\Bundle\TagAdminBundle\Entity\Traits\Tagging;
     ...

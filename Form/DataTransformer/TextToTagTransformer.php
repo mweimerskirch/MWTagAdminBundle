@@ -42,11 +42,20 @@ class TextToTagTransformer implements DataTransformerInterface
         }
 
         $tags_plain = $object->getTagsPlain();
-        foreach (explode(' ', $tags_plain) as $value) {
+        $tag_list = explode(' ', $tags_plain);
+        $tags = $object->getTags()->toArray();
+        foreach ($tag_list as $value) {
             $tag = $this->tagManager->loadOrCreateTag($value);
+            if (!in_array($tag, $tags)) {
+                $this->tagManager->addTag($tag, $object);
+            }
         }
 
-        $this->tagManager->addTag($tag, $object);
+        foreach ($tags as $tag) {
+            if (!in_array($tag->__toString(), $tag_list)) {
+                $this->tagManager->removeTag($tag, $object);
+            }
+        }
 
         // FIXME: Currently, tagging is saved *before* the element, even if it doesn't validate
         $this->tagManager->saveTagging($object);

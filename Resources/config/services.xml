@@ -5,7 +5,7 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <parameters>
-        <parameter key="mw.text_to_tag_transformer.class">\MW\Bundle\TagAdminBundle\Form\DataTransformer\TextToTagTransformer</parameter>
+        <parameter key="mw.text_to_tag_transformer.class">MW\Bundle\TagAdminBundle\Form\DataTransformer\TextToTagTransformer</parameter>
     </parameters>
 
     <services>
