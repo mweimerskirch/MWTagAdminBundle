@@ -30,7 +30,7 @@ class TextToTagTransformer implements DataTransformerInterface
 
         $this->tagManager->loadTagging($object);
 
-        $object->setTagsPlain(implode(' ', $object->getTags()->toArray()));
+        $object->setTagsPlain(implode(', ', $object->getTags()->toArray()));
 
         return $object;
     }
@@ -42,7 +42,7 @@ class TextToTagTransformer implements DataTransformerInterface
         }
 
         $tags_plain = $object->getTagsPlain();
-        $tag_list = explode(' ', $tags_plain);
+        $tag_list = array_unique(preg_split('/ *[,\n\r] */', $tags_plain, NULL, PREG_SPLIT_NO_EMPTY));
         $tags = $object->getTags()->toArray();
         foreach ($tag_list as $value) {
             $tag = $this->tagManager->loadOrCreateTag($value);
