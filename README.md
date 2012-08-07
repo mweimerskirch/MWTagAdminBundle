@@ -23,7 +23,7 @@ class ...Admin extends Admin
     {
         $formMapper
             ...
-            ->add('tags_plain', 'textarea')
+            ->add('tags_plain', 'textarea', array('required' => false))
             ->end()
             ;
         }

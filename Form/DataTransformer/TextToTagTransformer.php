@@ -57,10 +57,13 @@ class TextToTagTransformer implements DataTransformerInterface
             }
         }
 
-        // FIXME: Currently, tagging is saved *before* the element, even if it doesn't validate
-        $this->tagManager->saveTagging($object);
-
         return $object;
+    }
+
+    // Todo: Move this out into a manager class
+    public function postPersist($object)
+    {
+        $this->tagManager->saveTagging($object);
     }
 
 }

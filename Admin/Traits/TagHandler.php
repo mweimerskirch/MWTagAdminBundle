@@ -21,4 +21,14 @@ trait TagHandler
         return $formBuilder;
     }
 
+    public function postUpdate($object)
+    {
+        self::$tagTransformer->postPersist($object);
+    }
+
+    public function postPersist($object)
+    {
+        self::$tagTransformer->postPersist($object);
+    }
+
 }
