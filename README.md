@@ -5,7 +5,7 @@ In your entities:
 ``` php
 class ... implements \DoctrineExtensions\Taggable\Taggable
 {
-    use \MW\Bundle\TagAdminBundle\Entity\Traits\Tagging;
+    use \MW\Bundle\TagAdminBundle\Entity\Traits\Taggable;
     ...
 }
 ```
